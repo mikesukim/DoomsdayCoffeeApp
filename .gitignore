@@ -36,6 +36,7 @@ node_modules/
 .expo/
 npm-debug.log
 yarn-error.log
+package-lock.json
 
 # BUCK
 buck-out/
