@@ -17,11 +17,55 @@ class HomeTab extends Component {
         )
     }
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLoading: false,
+            data: [],
+        };
+    }
+
+    componentDidMount() {
+        //NetInfo.isConnected.fetch().then(isConnected => {
+            if (true) {
+                this.setState({isConnected: true})
+                this.getHomeScreenData();
+            } else {
+                this.setState({
+                    isLoading: false
+                })
+            }
+        //})
+    }
+
+    async getHomeScreenData() {
+        try {
+            let response = await fetch(
+                'http://3.91.79.177/home'
+            );
+            let json = await response.json();
+            this.setState({
+                data: json
+            });
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
     render() {
+
+        let display = this.state.data.map(function (Post, index) {
+            return (
+                <View style={styles.view}>
+                   <CardComponent style={{flex:1}}display_url={Post.display_url} post_text={Post.edge_media_to_caption.edges[0].node.text} />
+                </View>
+            )
+        });
+
         return (
             <Container style={styles.container}>
-                <Content>
-                    <CardComponent imageSource="1" likes="101" />
+                <Content style={styles.context}>
+                    {display}
                 </Content>
             </Container>
         );
@@ -33,5 +77,12 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'white'
+    },
+    context: {
+        flex: 1,
+        backgroundColor: 'white'
+    },
+    view:{
+        flex: 1
     }
 });
