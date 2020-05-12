@@ -29,7 +29,11 @@
     "typescript": "~3.6.3"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "transform": { "^.+\\.jsx?$": "babel-jest" },
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|native-base-shoutem-theme|@shoutem/animation|@shoutem/ui|tcomb-form-native|react-navigation)"
+    ]
   },
   "private": true
 }
