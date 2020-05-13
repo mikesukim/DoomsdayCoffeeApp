@@ -56,7 +56,7 @@ class HomeTab extends Component {
 
         let display = this.state.data.map(function (Post, index) {
             return (
-                <View style={styles.view}>
+                <View key={Post.taken_at_timestamp} style={styles.view}>
                    <CardComponent style={{flex:1}}display_url={Post.display_url} post_text={Post.edge_media_to_caption.edges[0].node.text} />
                 </View>
             )
