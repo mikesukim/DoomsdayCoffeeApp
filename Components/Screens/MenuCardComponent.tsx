@@ -10,7 +10,7 @@ import NetInfo from "react-native-netinfo"
 
 import { Container, Content, Card, CardItem, Thumbnail, Body, Left, Right, Button, Icon } from 'native-base'
 
-class CardComponent extends Component {
+class MenuCardComponent extends Component {
     
     constructor(props) {
         super(props);
@@ -22,13 +22,16 @@ class CardComponent extends Component {
                     <View>
                         <Card containerStyle={{padding: 0}}>
                             <CardItem cardBody>
-                                <Image source={{uri: this.props.display_url}} style={{ height: 300, width: null, flex: 1 }} />
+                                <Image source={{uri: this.props.image}}style={{ height: 300, width: null, flex: 1 }} />
+                                <Text>
+                                        {this.props.name}
+                                </Text>
                             </CardItem>
 
                             <CardItem>
                                 <Body>
                                     <Text>
-                                        {this.props.post_text}
+                                        {this.props.price}
                                     </Text>
                                 </Body>
                             </CardItem>
@@ -38,7 +41,7 @@ class CardComponent extends Component {
         );
     }
 }
-export default CardComponent;
+export default MenuCardComponent;
 
 const styles = StyleSheet.create({
     container: {
