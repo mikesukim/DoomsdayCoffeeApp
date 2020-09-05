@@ -1,7 +1,11 @@
+# Known Errors:
+The Expo app currently does not work the current build, will be fixing soon.
+For now use the android and iphone simulators. 
+
 ## Getting Started
 
-1. Install Node.js v10.18.1 
-    * [Windows](https://nodejs.org/dist/v10.18.1/node-v10.18.1-x64.msi) and [Mac](https://nodejs.org/dist/v10.18.1/node-v10.18.1.pkg)
+1. Install Node.js v12.18.3 
+    * [Windows](https://nodejs.org/dist/v12.18.3/node-v12.18.3-x64.msi) and [Mac](https://nodejs.org/dist/v12.18.3/node-v12.18.3.pkg)
 2. Install dependencies
     * `npm install -g expo-cli`
     * `npm install`
