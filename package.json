@@ -1,39 +1,44 @@
 {
+  "name": "DoomsdayCoffeeApp",
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "web": "expo start --web",
     "start": "expo start",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint ."
   },
   "dependencies": {
-    "expo": "~36.0.0",
-    "native-base": "^2.3.7",
-    "react": "~16.9.0",
-    "react-dom": "~16.9.0",
-    "react-native": "^0.61.5",
-    "react-native-gesture-handler": "~1.5.0",
-    "react-native-netinfo": "^1.1.0",
-    "react-native-reanimated": "~1.4.0",
-    "react-native-screens": "2.0.0-alpha.12",
-    "react-native-unimodules": "~0.7.0",
-    "react-native-web": "~0.11.7",
-    "react-navigation": "^1.0.0-beta.27"
+    "@react-native-community/masked-view": "^0.1.10",
+    "@react-native-community/netinfo": "^5.9.6",
+    "@react-navigation/bottom-tabs": "^5.8.0",
+    "@react-navigation/native": "^5.7.3",
+    "@react-navigation/stack": "^5.9.0",
+    "expo": "^38.0.10",
+    "native-base": "^2.4.1",
+    "react": "16.13.1",
+    "react-dom": "~16.13.1",
+    "react-native": "0.63.2",
+    "react-native-gesture-handler": "^1.8.0",
+    "react-native-reanimated": "^1.13.0",
+    "react-native-safe-area-context": "^3.1.7",
+    "react-native-screens": "^2.10.1",
+    "react-native-unimodules": "~0.10.1",
+    "react-native-web": "~0.13.9",
+    "react-navigation": "^4.4.0"
   },
   "devDependencies": {
-    "@babel/core": "~7.6.0",
-    "@types/react": "~16.9.0",
-    "@types/react-native": "~0.60.23",
-    "babel-preset-expo": "~8.0.0",
-    "jest-expo": "~36.0.1",
-    "typescript": "~3.6.3"
+    "@babel/core": "^7.11.6",
+    "@babel/runtime": "^7.11.2",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "babel-jest": "^26.3.0",
+    "eslint": "^7.8.1",
+    "jest": "^26.4.2",
+    "metro-react-native-babel-preset": "^0.63.0",
+    "react-test-renderer": "16.13.1"
   },
   "jest": {
-    "preset": "react-native",
-    "transform": { "^.+\\.jsx?$": "babel-jest" },
-    "transformIgnorePatterns": [
-      "node_modules/(?!react-native|native-base-shoutem-theme|@shoutem/animation|@shoutem/ui|tcomb-form-native|react-navigation)"
-    ]
-  },
-  "private": true
+    "preset": "react-native"
+  }
 }
