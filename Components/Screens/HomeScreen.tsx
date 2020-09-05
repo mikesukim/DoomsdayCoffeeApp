@@ -12,8 +12,12 @@ import AddMediaTab from './AppTabNavigator/AddMediaTab'
 import LikesTab from './AppTabNavigator/LikesTab'
 import ProfileTab from './AppTabNavigator/ProfileTab'
 
-import { TabNavigator } from 'react-navigation'
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator  } from '@react-navigation/bottom-tabs'
 import { Icon } from 'native-base'
+
+const Tab = createBottomTabNavigator();
+
 
 class MainScreen extends Component {
 
@@ -26,13 +30,19 @@ class MainScreen extends Component {
 
     render() {
         return (
-            <AppTabNavigator />
+                <Tab.Navigator>
+                    <Tab.Screen name="Home" component={HomeTab} />
+                    <Tab.Screen name="Search" component={SearchTab} />
+                    <Tab.Screen name="AddMedia" component={AddMediaTab} />
+                    <Tab.Screen name="Likes" component={LikesTab} />
+                    <Tab.Screen name="Profile" component={ProfileTab} />
+                </Tab.Navigator>
         );
     }
 }
 export default MainScreen;
 
-const AppTabNavigator = TabNavigator({
+/*{
 
     HomeTab: {
         screen: HomeTab
@@ -68,7 +78,7 @@ const AppTabNavigator = TabNavigator({
             showLabel: false,
             showIcon: true
         }
-    })
+    })*/
 
 const styles = StyleSheet.create({
     container: {
