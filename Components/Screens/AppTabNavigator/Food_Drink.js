@@ -7,12 +7,14 @@ import {
 } from "react-native";
 import { Container, Content, Icon } from 'native-base'
 import Carousel from 'react-native-snap-carousel';
+import MenuCardComponent from '../MenuCardComponent'
 
 // Component Declaration using HOOK
 function Food_Drink() {
     
     // Declare Datas
     const [foodsData, setFoodsData] = useState([]);
+    const [drinksData, setDrinksData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     // Declare Data for Carousel
@@ -31,25 +33,28 @@ function Food_Drink() {
               })
               .catch(err =>console.error(err));
           }
+  
+          async function getDrinksData() {
+            const res = await fetch("http://192.168.1.42:8080/drinks")
+              .then(res => res.json())
+              .then(res => {
+                setDrinksData(res);
+                setIsLoading(false);
+              })
+              .catch(err =>console.error(err));
+          }
 
         // Initiate Request
         getFoodsData();
+        getDrinksData();
 
-    }, []);
+    }, [isLoading]);
 
+
+    //Carousel Config
     const _renderItem = ({item, index}) => {
         return (
-          <View style={{
-              backgroundColor:'purple',
-              borderRadius: 5,
-              height: 250,
-              padding: 50,
-              marginLeft: 25,
-              marginRight: 25, }}>
-            <Text style={{fontSize: 30}}>{item.Name}</Text>
-            <Text>{item.Price}</Text>
-          </View>
-    
+          <MenuCardComponent image={item.image} name={item.Name} price={item.Price}/>
         );
     };
 
@@ -57,14 +62,17 @@ function Food_Drink() {
     return(
         <Container style={styles.container}>
         <Content style={styles.context}>
-            {isLoading && <Text>LOADING..</Text>}
+        <SafeAreaView style={{flex: 1, backgroundColor:'white', paddingTop: 20, }}>
+            {/* {isLoading && 
+                          <View style={{flex:1, alignItems: 'center'}}>
+                          <Text>Loading...</Text>
+                          </View>
+            } */}
             {foodsData.length != 0 && (
                 // foodsData.map((food,index) =>(
                 //     <Text>{food.Name}</Text>
                 // ))
-
-                <SafeAreaView style={{flex: 1, backgroundColor:'white', paddingTop: 50, }}>
-                <View style={{ flex: 1, flexDirection:'row', justifyContent: 'center', backgroundColor:'white' }}>
+              <View style={{ flex: 1, flexDirection:'row', justifyContent: 'center', backgroundColor:'white',marginVertical:20 }}>
                     <Carousel
                       layout={"default"}
                       ref={carouselRef}
@@ -74,10 +82,21 @@ function Food_Drink() {
                       renderItem={_renderItem}
                       onSnapToItem = { index => setActiveIndex(index) } />
                 </View>
-              </SafeAreaView>
-
+              )}
+              {drinksData.length != 0 && (
+                <View style={{ flex: 1, flexDirection:'row', justifyContent: 'center', backgroundColor:'white', marginVertical:20 }}>
+                    <Carousel
+                      layout={"default"}
+                      ref={carouselRef}
+                      data={drinksData}
+                      sliderWidth={300}
+                      itemWidth={300}
+                      renderItem={_renderItem}
+                      onSnapToItem = { index => setActiveIndex(index) } />
+                </View>
+             
             )}
-            
+             </SafeAreaView>
         </Content>
     </Container>
     )
@@ -89,11 +108,11 @@ function Food_Drink() {
   const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white'
+        backgroundColor: 'white',
     },
     context: {
         flex: 1,
-        backgroundColor: 'white'
+        backgroundColor: 'white',
     },
     view:{
         flex: 1

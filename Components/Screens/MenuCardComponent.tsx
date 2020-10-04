@@ -23,13 +23,13 @@ class MenuCardComponent extends Component {
                         <Card containerStyle={{padding: 0}}>
                             <CardItem cardBody>
                                 <Image source={{uri: this.props.image}}style={{ height: 300, width: null, flex: 1 }} />
-                                <Text>
-                                        {this.props.name}
-                                </Text>
                             </CardItem>
 
                             <CardItem>
                                 <Body>
+                                <Text>
+                                        {this.props.name}
+                                </Text>
                                     <Text>
                                         {this.props.price}
                                     </Text>
