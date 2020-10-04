@@ -30,7 +30,6 @@ function Food_Drink() {
 
     }, []);
 
-
     //Render
     return(
         <View>
