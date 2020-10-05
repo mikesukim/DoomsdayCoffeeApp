@@ -1,3 +1,7 @@
+# Known Errors:
+The Expo app currently does not work the current build, will be fixing soon.
+For now use the android and iphone simulators. 
+
 ## Getting Started
 
 1. Install Node.js v12.18.3 
