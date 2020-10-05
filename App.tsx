@@ -13,7 +13,7 @@ export default class App extends React.Component {
     return (
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="DoomsdayCoffee" component={HomeScreen} />
+          <Stack.Screen name="Doomsday Coffee" component={HomeScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     );
@@ -27,7 +27,6 @@ export default class App extends React.Component {
     screen: HomeScreen
   }
 })*/
-
 
 const styles = StyleSheet.create({
   container: {

@@ -7,7 +7,7 @@ import {
 
 import { Icon } from 'native-base'
 
-class AddMediaTab extends Component {
+class CartTab extends Component {
 
     static navigationOptions = {
 
@@ -19,12 +19,12 @@ class AddMediaTab extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>AddMediaTab</Text>
+                <Text>CartTab</Text>
             </View>
         );
     }
 }
-export default AddMediaTab;
+export default CartTab;
 
 const styles = StyleSheet.create({
     container: {

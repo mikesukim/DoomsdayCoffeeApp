@@ -8,15 +8,20 @@ import {
 import { Container, Content, Icon } from 'native-base'
 import CardComponent from '../CardComponent'
 
+
 class HomeTab extends Component {
+
 
     static navigationOptions = {
 
+        /*
         tabBarIcon: ({ tintColor }) => (
-            <Icon name="ios-home" style={{ color: tintColor }} />
-        )
+            <Icon name="ios-search" size={25} color="#4F8EF7" />
+        ) */
+
     }
 
+    
     constructor(props) {
         super(props);
         this.state = {

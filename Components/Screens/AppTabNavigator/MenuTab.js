@@ -9,7 +9,7 @@ import { Container, Content, Icon } from 'native-base'
 
 import MenuCardComponent from "../MenuCardComponent"
 
-class SearchTab extends Component {
+class MenuTab extends Component {
 
     static navigationOptions = {
 
@@ -72,7 +72,7 @@ class SearchTab extends Component {
         );
     }
 }
-export default SearchTab;
+export default MenuTab;
 
 const styles = StyleSheet.create({
     container: {
