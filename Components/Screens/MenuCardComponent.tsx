@@ -7,6 +7,7 @@ import {
 } from "react-native";
 
 import NetInfo from "react-native-netinfo"
+import { human } from 'react-native-typography'
 
 import { Container, Content, Card, CardItem, Thumbnail, Body, Left, Right, Button, Icon } from 'native-base'
 
@@ -26,14 +27,18 @@ class MenuCardComponent extends Component {
                             </CardItem>
 
                             <CardItem>
-                                <Body>
-                                <Text>
+                                {/* <Body> */}
+                                <View style={{flex: 1}}>
+                                <Text style = {{ textAlign : "left" , alignSelf: 'stretch'}} style = {human.headline} >
                                         {this.props.name}
                                 </Text>
-                                    <Text>
-                                        {this.props.price}
+                                </View>
+                                <View style={{flex: 1}}>
+                                    <Text style = {{ textAlign : "right", alignSelf: 'stretch' }}>
+                                        ${this.props.price}
                                     </Text>
-                                </Body>
+                                </View>
+                                {/* </Body> */}
                             </CardItem>
                         </Card>
                     </View>
