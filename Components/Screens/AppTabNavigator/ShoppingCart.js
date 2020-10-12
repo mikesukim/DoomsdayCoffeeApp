@@ -3,11 +3,10 @@ import {
     View,
     Text,
     StyleSheet,
-    Button,
     SafeAreaView
 } from "react-native";
 
-import { Icon,  Container, Header, Content, Card, CardItem, Body  } from 'native-base'
+import { Icon,  Container, Header, Content, Card, CardItem, Body, ListItem, CheckBox,List, Button, Right, Left  } from 'native-base'
 import { Value } from "react-native-reanimated";
 
 class ShoppingCart extends Component {
@@ -17,7 +16,7 @@ class ShoppingCart extends Component {
         super(props);
         this.state = {
             primaryText : "Your Cart is Empty",
-            total : 0,
+            total : this.calculateTotal().toFixed(2),
             data : dummyOrder,
             removedIndex : []    
         }
@@ -117,6 +116,13 @@ class ShoppingCart extends Component {
         return total
     }
 
+    //removes selected item from the cart
+    onCheckBoxPressItem = (Item, index) =>
+    {
+        dummyOrder.splice(index, 1);
+        this.updateCart();
+    }
+
 
     static navigationOptions = {
 
@@ -127,22 +133,27 @@ class ShoppingCart extends Component {
 
     render() {
 
-        let display = this.state.data.map(function (Item, index) {
+        let display = this.state.data.map((Item, index) => {
             return (
                 <View>
-                   <ShoppingItem Name={Item.Name}/>
+                   <ShoppingItem Name={Item.Name} boxChecked={() => this.onCheckBoxPressItem(Item, index)} Total={'$' + Item.Price} bgColor={'white'} txtColor={'black'} beenClicked={false}/>
                 </View>
             )
         });
 
         return (
             <Container style={styles.container}>
+                <ListItem itemHeader>
+                        <Left><Text>Total</Text></Left>
+                        <Right><Text>${this.state.total}</Text></Right>
+                        <Right><Button transparent onPress={() => alert("Bought")}><Icon active style={{color:'black'}} name='cart'/></Button></Right>
+                    </ListItem>
                 <Content style={styles.context}>
                     {display}
                 </Content>
+            </Container>
             
-            
-            <SafeAreaView style={styles.container}>
+            /*<SafeAreaView style={styles.container}>
                 <Text>{this.state.primaryText}</Text>
                 <Text>{this.state.total}</Text>
                 <Button id="purchase" title="Update Cart" 
@@ -159,9 +170,7 @@ class ShoppingCart extends Component {
                 onPress={this.purchasePastry}/>
                 <Button id="removePastry" title="remove Pastry" 
                 onPress={this.removePasrty}/>
-            </SafeAreaView>
-            </Container>
-            
+            </SafeAreaView>*/  
         );
     }
 }
@@ -193,13 +202,24 @@ var dummyItem1 = {"id":"1122334455",
                     "sugar", "milk"]
 }
 
+var dummyItem1 = {"id":"1122334455",
+                   "Name" : "Coffee",
+                    "Price" : 3.99,
+                    "image" : "null",
+                    "ingredients" : 
+                    ["beans", "water",
+                    "sugar", "Oat milk"],
+                    "quantity": "1"
+}
+
 var dummyItem2 = {"id":"1223344556",
                    "Name" : "Sandwich",
                     "Price" : 16.78,
                     "image" : "null",
                     "ingredients" : 
                     ["bread", "cheese",
-                    "meat", "sauce"]
+                    "meat", "sauce"],
+                    "quantity": "1"
 }
 
 var dummyItem3 = {"id":"2345678901",
@@ -209,10 +229,11 @@ var dummyItem3 = {"id":"2345678901",
                     "ingredients" : 
                     ["dough", "water",
                     "sugar", "milk",
-                    "Fruit", "cinnamon"]
+                    "Fruit", "cinnamon"],
+                    "quantity": "1"
 }
 
-var dummyOrder =[dummyItem1, dummyItem2, dummyItem3]
+var dummyOrder =[dummyItem1, dummyItem2, dummyItem3, dummyItem3, dummyItem2,dummyItem1, dummyItem2, dummyItem3, dummyItem3, dummyItem2]
 var dumString = "dummmyString"//dummyItem1.parse(JSON)
 
 
@@ -220,33 +241,32 @@ class ShoppingItem extends Component {
     
     constructor(props) {
         super(props);
+       /* this.props.beenClicked = false;
+        this.state = {
+            beenClick:false,
+        }*/
     }
+
+    onClick = () =>
+    {
+        alert("CLick")
+    }
+
     render() {
         return (
             <Content>
-                <View>
-                    <Card>
-                        <CardItem>
-                            <Text>{this.props.Name}</Text>
-                        </CardItem>
-                    </Card>
-                </View>
+                <List>
+                    <ListItem  style={{backgroundColor:this.props.bgColor}}>
+                        <Body>
+                            <Text style={{color:this.props.txtColor}}>{this.props.Name}</Text>
+                        </Body>
+                        <Right><Text>{this.props.Total}</Text></Right>
+                        <Right>
+                            <Button transparent onPress={this.props.boxChecked}><Icon active style={{color:'black'}} name='close'/></Button>
+                        </Right>    
+                    </ListItem>
+                </List>
             </Content>
           );
     }
 };
-//export default shoppingItem;
-
-/*const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: 'white'
-    },
-    context: {
-        flex: 1,
-        backgroundColor: 'white'
-    },
-    view:{
-        flex: 1
-    }
-});*/
