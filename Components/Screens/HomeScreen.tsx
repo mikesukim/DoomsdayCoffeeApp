@@ -12,6 +12,7 @@ import AddMediaTab from './AppTabNavigator/AddMediaTab'
 import LikesTab from './AppTabNavigator/LikesTab'
 import ProfileTab from './AppTabNavigator/ProfileTab'
 import Food_Drink from './AppTabNavigator/Food_Drink'
+import TestTab from './AppTabNavigator/TestTab'
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator  } from '@react-navigation/bottom-tabs'
@@ -38,6 +39,7 @@ class MainScreen extends Component {
                     <Tab.Screen name="Likes" component={LikesTab} />
                     <Tab.Screen name="Profile" component={ProfileTab} />
                     <Tab.Screen name="Food_Drink" component={Food_Drink} />
+                    <Tab.Screen name="Test" component={TestTab} />
                 </Tab.Navigator>
         );
     }

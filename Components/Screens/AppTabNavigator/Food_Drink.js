@@ -8,10 +8,16 @@ import {
 import { Container, Content, Icon } from 'native-base'
 import Carousel from 'react-native-snap-carousel';
 import MenuCardComponent from '../MenuCardComponent'
+import { TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
+import { NavigationEvents } from 'react-navigation';
 
 // Component Declaration using HOOK
 function Food_Drink() {
     
+    const navigation = useNavigation()
+
     // Declare Datas
     const [foodsData, setFoodsData] = useState([]);
     const [drinksData, setDrinksData] = useState([]);
@@ -50,11 +56,25 @@ function Food_Drink() {
 
     }, [isLoading]);
 
+    const cardClicked = (item) => {
+
+      console.log("yo come on ! " + item.Name)
+     
+      // navigation.setParams({
+      //   order : item.Name
+      // })
+      navigation.navigate('Test', {
+        order: item.Name
+      });
+
+    }
 
     //Carousel Config
     const _renderItem = ({item, index}) => {
         return (
-          <MenuCardComponent image={item.image} name={item.Name} price={item.Price}/>
+         <TouchableOpacity key={item.id} onPress={() => cardClicked(item)}>   
+          <MenuCardComponent pointerEvents="none" image={item.image} name={item.Name} price={item.Price}/>
+          </TouchableOpacity>
         );
     };
 
@@ -99,6 +119,7 @@ function Food_Drink() {
              </SafeAreaView>
         </Content>
     </Container>
+
     )
 
   }
