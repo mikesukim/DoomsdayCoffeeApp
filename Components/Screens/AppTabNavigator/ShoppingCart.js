@@ -45,70 +45,6 @@ class ShoppingCart extends Component {
         return primaryTextString
     }
 
-    purchaseCoffee = () =>
-    {
-        dummyOrder.push(dummyItem1)
-        this.updateCart()
-    }
-
-    removeCoffee = () =>
-    {
-        var index = dummyOrder.indexOf(dummyItem1)
-        if(dummyOrder.length > 1)
-        {
-            dummyOrder.splice(index, 1)
-        }
-        else if(dummyOrder[0] == dummyItem1)
-        {
-            dummyOrder = []
-        }
-        this.setState({data : dummyOrder})
-        this.updateCart()
-    }
-
-    purchaseSandwich = () =>
-    {
-        dummyOrder.push(dummyItem2)
-        this.setState({data : dummyOrder})
-        this.updateCart()
-    }
-
-    removeSandwich = () =>
-    {
-        var index = dummyOrder.indexOf(dummyItem2)
-        if(dummyOrder.length > 1)
-        {
-            dummyOrder.splice(index, 1)
-        }
-        else if(dummyOrder[0] == dummyItem2)
-        {
-            dummyOrder = []
-        }
-        this.setState({data : dummyOrder})
-        this.updateCart()
-    }
-
-    purchasePastry = () =>
-    {
-        dummyOrder.push(dummyItem3)
-        this.updateCart()
-    }
-
-    removePasrty = () =>
-    {
-        var index = dummyOrder.indexOf(dummyItem3)
-        if(dummyOrder.length > 1)
-        {
-            dummyOrder.splice(index, 1)
-        }
-        else if(dummyOrder[0] == dummyItem3)
-        {
-            dummyOrder = []
-        }
-        this.setState({data : dummyOrder})
-        this.updateCart()
-    }
-
     calculateTotal = () =>
     {
         var total = 0;
@@ -153,24 +89,6 @@ class ShoppingCart extends Component {
                 </Content>
             </Container>
             
-            /*<SafeAreaView style={styles.container}>
-                <Text>{this.state.primaryText}</Text>
-                <Text>{this.state.total}</Text>
-                <Button id="purchase" title="Update Cart" 
-                onPress={this.updateCart}/>
-                <Button id="buyCoffee" title="Buy Coffee" 
-                onPress={this.purchaseCoffee}/>
-                <Button id="removeCoffee" title="remove Coffee" 
-                onPress={this.removeCoffee}/>
-                <Button id="buySandwich" title="Buy Sandwich" 
-                onPress={this.purchaseSandwich}/>
-                <Button id="removeSandwich" title="remove Sandwich" 
-                onPress={this.removeSandwich}/>
-                <Button id="buyPastry" title="Buy Pastry" 
-                onPress={this.purchasePastry}/>
-                <Button id="removePastry" title="remove Pastry" 
-                onPress={this.removePasrty}/>
-            </SafeAreaView>*/  
         );
     }
 }
@@ -192,7 +110,7 @@ const styles = StyleSheet.create({
     }
 });
 
-
+//Dummy data to use for testing purpose
 var dummyItem1 = {"id":"1122334455",
                    "Name" : "Coffee",
                     "Price" : 3.99,
@@ -233,18 +151,15 @@ var dummyItem3 = {"id":"2345678901",
                     "quantity": "1"
 }
 
-var dummyOrder =[dummyItem1, dummyItem2, dummyItem3, dummyItem3, dummyItem2,dummyItem1, dummyItem2, dummyItem3, dummyItem3, dummyItem2]
+var dummyOrder =[dummyItem1, dummyItem3, dummyItem2, dummyItem3, dummyItem3, dummyItem2,dummyItem1, dummyItem2, dummyItem3, dummyItem3, dummyItem2]
 var dumString = "dummmyString"//dummyItem1.parse(JSON)
 
-
+//Component to show an individual item in the cart
 class ShoppingItem extends Component {
     
     constructor(props) {
         super(props);
-       /* this.props.beenClicked = false;
-        this.state = {
-            beenClick:false,
-        }*/
+     
     }
 
     onClick = () =>
