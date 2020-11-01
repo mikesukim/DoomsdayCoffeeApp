@@ -13,6 +13,14 @@ import { useNavigation } from '@react-navigation/native';
 
 import { NavigationEvents } from 'react-navigation';
 
+//import Redux
+import { useSelector, useDispatch } from 'react-redux'
+import {
+  add,
+  reset,
+  selectItem
+} from "../../../redux/slices/itemSlice"
+
 // Component Declaration using HOOK
 function Food_Drink() {
     
@@ -26,6 +34,9 @@ function Food_Drink() {
     // Declare Data for Carousel
     const [activeIndex, setActiveIndex] = useState(0);
     const carouselRef = useRef(null);
+
+    // Connect Redux
+    const dispatch = useDispatch()
 
     // DidcompononentMount
     useEffect(() => { 
@@ -58,15 +69,21 @@ function Food_Drink() {
 
     const cardClicked = (item) => {
 
-      console.log("yo come on ! " + item.Name)
-     
-      // navigation.setParams({
-      //   order : item.Name
-      // })
+      console.log("yo come on ! " + item.Name)    
+      
+      //Testing (passing to TestTab)
       navigation.navigate('Test', {
         order: item.Name
       });
 
+      //convert item to JsonObject
+      var itemJson = {
+        "Name" : item.Name,
+        "Price" : item.Price,
+        "Count" : 1
+      }
+      //update redux
+      dispatch(add(itemJson))
     }
 
     //Carousel Config

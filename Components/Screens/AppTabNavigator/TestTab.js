@@ -7,33 +7,28 @@ import {
 
 import { Icon } from 'native-base'
 
+//import Redux
+import { useSelector,connect } from 'react-redux'
+import {
+    reset,
+    selectItem
+} from "../../../redux/slices/itemSlice"
+
+
 
 class TestTab extends Component{
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            isLoading: false,
-            data: this.props.route.params ? this.props.route.params.order : [],
-        };
-    }
-
     render(){
-        const { navigate } = this.props.navigation;
-        const { route } = this.props.route;
         return (    
             <View style={styles.container}>
                 <Text>
-                name: {this.props.route.params ? this.props.route.params.order : "nothin"}
-                {/* name: {this.data} */}
+                items From Redux: {this.props.value ? JSON.stringify(this.props.value) : "no data"}
                 </Text>
             </View>
-        );5
+        );
     }
-
     
 }
-export default TestTab;
 
 const styles = StyleSheet.create({
     container: {
@@ -42,3 +37,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     }
 });
+
+//connect Component to Redux
+function mapStateToProps(state) {
+    const { item } = state
+    return item
+  }
+export default connect(mapStateToProps)(TestTab)
