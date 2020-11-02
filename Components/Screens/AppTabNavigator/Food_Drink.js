@@ -68,13 +68,11 @@ function Food_Drink() {
     }, [isLoading]);
 
     const cardClicked = (item) => {
-
-      console.log("yo come on ! " + item.Name)    
       
-      //Testing (passing to TestTab)
-      navigation.navigate('Test', {
-        order: item.Name
-      });
+      // Testing (passing to TestTab)
+      // navigation.navigate('Test', {
+      //   order: item.Name
+      // });
 
       //convert item to JsonObject
       var itemJson = {

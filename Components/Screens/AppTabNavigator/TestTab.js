@@ -21,8 +21,15 @@ class TestTab extends Component{
     render(){
         return (    
             <View style={styles.container}>
-                <Text>
-                items From Redux: {this.props.value ? JSON.stringify(this.props.value) : "no data"}
+                <Text style={styles.baseText}>
+                    <Text style={styles.subTitleText}>
+                        number of Items: 
+                    </Text>
+                    <Text> {this.props.value.length}{"\n"}</Text>
+                    <Text style={styles.subTitleText}>
+                        items From Redux:
+                    </Text>
+                    <Text>{this.props.value ? JSON.stringify(this.props.value) : "no data"}</Text>
                 </Text>
             </View>
         );
@@ -31,6 +38,13 @@ class TestTab extends Component{
 }
 
 const styles = StyleSheet.create({
+    baseText: {
+        fontFamily: "Cochin",
+        textAlign: 'center',
+      },
+    subTitleText: {
+        fontWeight: "bold"
+      },
     container: {
         flex: 1,
         alignItems: 'center',
