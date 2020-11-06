@@ -41,7 +41,7 @@ class HomeTab extends Component {
     async getHomeScreenData() {
         try {
             let response = await fetch(
-                'http://192.168.1.42:8080/home'
+                'http://72.204.10.163/home'
             );
             let json = await response.json();
             this.setState({

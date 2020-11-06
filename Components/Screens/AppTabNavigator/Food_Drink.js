@@ -42,7 +42,7 @@ function Food_Drink() {
     useEffect(() => { 
         //Define Request
         async function getFoodsData() {
-            const res = await fetch("http://192.168.1.42:8080/foods")
+            const res = await fetch("http://72.204.10.163/foods")
               .then(res => res.json())
               .then(res => {
                 setFoodsData(res);
@@ -52,7 +52,7 @@ function Food_Drink() {
           }
   
           async function getDrinksData() {
-            const res = await fetch("http://192.168.1.42:8080/drinks")
+            const res = await fetch("http://72.204.10.163/drinks")
               .then(res => res.json())
               .then(res => {
                 setDrinksData(res);
