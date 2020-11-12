@@ -10,11 +10,14 @@ export const itemSlice = createSlice({
       },
       reset: state => {
         state.value = []
-      }
+      },
+      remove: (state, action) => {
+        state.value = state.value.filter((item, index) => index !== action.payload)
+      },
     }
   })
   
-  export const { add, reset } = itemSlice.actions
+  export const { add, reset, remove } = itemSlice.actions
   
   export default itemSlice.reducer
 

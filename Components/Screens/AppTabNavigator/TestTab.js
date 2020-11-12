@@ -2,15 +2,17 @@ import React, { Component } from "react";
 import {
     View,
     Text,
+    Button,
     StyleSheet
 } from "react-native";
 
-import { Icon } from 'native-base'
+
 
 //import Redux
 import { useSelector,connect } from 'react-redux'
 import {
     reset,
+    remove,
     selectItem
 } from "../../../redux/slices/itemSlice"
 
@@ -21,6 +23,8 @@ class TestTab extends Component{
     render(){
         return (    
             <View style={styles.container}>
+
+            
                 <Text style={styles.baseText}>
                     <Text style={styles.subTitleText}>
                         number of Items: 
@@ -34,8 +38,8 @@ class TestTab extends Component{
             </View>
         );
     }
-    
 }
+
 
 const styles = StyleSheet.create({
     baseText: {
@@ -48,7 +52,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        flexDirection: 'column',
     }
 });
 
@@ -56,5 +61,5 @@ const styles = StyleSheet.create({
 function mapStateToProps(state) {
     const { item } = state
     return item
-  }
+}
 export default connect(mapStateToProps)(TestTab)
