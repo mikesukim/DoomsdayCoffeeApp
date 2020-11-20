@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "851702039280",
+    "firebase_url": "https://doomsdaycoffeeapp.firebaseio.com",
+    "project_id": "doomsdaycoffeeapp",
+    "storage_bucket": "doomsdaycoffeeapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:851702039280:android:e717862269274dd4c97835",
+        "android_client_info": {
+          "package_name": "com.doomsdaycoffeeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "851702039280-6kid6v1bai1lnk8phcc8d24bgs2ktdhh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.doomsdaycoffeeapp",
+            "certificate_hash": "3d0fb7c365acc4197e1e5cf294e816a8d035d697"
+          }
+        },
+        {
+          "client_id": "851702039280-51aqig4sqdhnljs5ghptu7m2rcha0nuc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADt9H2OVs29LBjIVUuWq2elSff86jKIy4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "851702039280-51aqig4sqdhnljs5ghptu7m2rcha0nuc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

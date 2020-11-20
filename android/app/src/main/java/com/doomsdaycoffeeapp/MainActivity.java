@@ -4,6 +4,7 @@ import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
 import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView;
+//import co.apptailor.googlesignin.RNGoogleSigninPackage;
 
 public class MainActivity extends ReactActivity {
 
@@ -15,6 +16,16 @@ public class MainActivity extends ReactActivity {
     protected String getMainComponentName() {
         return "DoomsdayCoffeeApp";
     }
+
+    /*
+    @Override
+    protected List<ReactPackage> getPackages() {
+      return Arrays.<ReactPackage>asList(
+          new MainReactPackage(),
+          new RNGoogleSigninPackage()
+      );
+    }
+    */
 
     @Override
     protected ReactActivityDelegate createReactActivityDelegate() {
