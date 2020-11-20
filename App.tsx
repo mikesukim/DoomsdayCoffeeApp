@@ -1,3 +1,4 @@
+/*
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
@@ -10,9 +11,12 @@ import store from './redux/store'
 import { Provider } from 'react-redux'
 
 
-const Stack = createStackNavigator();
 
+const Stack = createStackNavigator();
 export default class App extends React.Component {
+
+  App = () => {return (<LoginController/>);};
+
   render() {
     return (
       <Provider store={store}>
@@ -34,7 +38,7 @@ export default class App extends React.Component {
   }
 })*/
 
-
+/*
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -43,3 +47,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+*/
+
+import React, { Fragment } from 'react';
+import LoginController from './LoginController';
+const App = () => {return (<LoginController/>);};
+export default App;

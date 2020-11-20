@@ -147,6 +147,8 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     implementation "com.facebook.react:react-native:+"  // From node_modules
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
+    //implementation(project(":react-native-google-signin"))
     addUnimodulesDependencies()
 
     if (enableHermes) {
@@ -167,3 +169,5 @@ task copyDownloadableDepsToLibs(type: Copy) {
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle");
 applyNativeModulesAppBuildGradle(project)
+
+apply plugin: 'com.google.gms.google-services'
