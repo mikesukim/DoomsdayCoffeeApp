@@ -20,8 +20,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator  } from '@react-navigation/bottom-tabs'
 import { Icon } from 'native-base'
 
-import LoginController from './AppTabNavigator/LoginController';
-
 const Tab = createBottomTabNavigator();
 
 
@@ -41,7 +39,7 @@ class MainScreen extends Component {
                     <Tab.Screen name="Search" component={SearchTab} />
                     <Tab.Screen name="AddMedia" component={AddMediaTab} />
                     <Tab.Screen name="Likes" component={LikesTab} />
-                    <Tab.Screen name="Profile" component={LoginController} />
+                    <Tab.Screen name="Profile" component={ProfileTab} />
                     <Tab.Screen name="Cart" component={ShoppingCart}/>
                     <Tab.Screen name="Food_Drink" component={Food_Drink} />
                     <Tab.Screen name="Test" component={TestTab} />

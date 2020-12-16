@@ -35,25 +35,13 @@ class HomeTab extends Component {
                     isLoading: false
                 })
             }
-
-            /*
-            GoogleSignin.configure({
-                scopes: ['https://www.googleapis.com/auth/drive.readonly'], webClientId: 'XXXXXX-qXXXXXn7umiXXXXXXe1ekgubrXXe.apps.googleusercontent.com',
-                offlineAccess: true,
-                hostedDomain: '',
-                loginHint: '',
-                forceConsentPrompt: true,
-                accountName: '',
-                iosClientId: 'XXXXXX-krv1hjXXXXXXp51pisuc1104q5XXXXXXe.apps.googleusercontent.com'
-                });
-            */
         //})
     }
 
     async getHomeScreenData() {
         try {
             let response = await fetch(
-                'http://192.168.0.2:8080/home'
+                'http://192.168.50.116:8080/home'
             );
             let json = await response.json();
             this.setState({
